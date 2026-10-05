@@ -5,3 +5,12 @@
     <p>Monday March 2 2026</p>
     <p>its another tastk</p>
 </article>
+
+<div class="task-card">
+    @for (task of tasksList; track task.id) {
+        @if (isSameUser(task.userId)) {
+            <h3> {{task.tittle}} </h3>
+
+        }
+    }
+</div>

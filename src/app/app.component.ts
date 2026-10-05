@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { DUMMY_USERS } from './dummy-users';
 
 @Component({
   imports: [HeaderComponent, UserComponent, TasksComponent],
@@ -10,5 +11,15 @@ import { TasksComponent } from './tasks/tasks.component';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  protected readonly title = signal('project0');
+  public users = DUMMY_USERS;
+
+  public selectUserId?: string;
+
+  get selectUser(){
+    return this.users.find((user) => user.id === this.selectUserId);
+  }
+
+  onSelectUser(id: string) {
+    this.selectUserId = id;
+  };
 }
