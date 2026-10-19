@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { TASK_LIST } from '../task-list';
 
 @Component({
   imports: [],
@@ -7,20 +8,12 @@ import { Component, input } from '@angular/core';
   templateUrl: './tasks.component.html',
 })
 export class TasksComponent {
-    user = input<String>('user')
+    userId = input<String | undefined>()
     username = input<String>('user')
 
-    tasksList = [
-        {
-            id: 't1',
-            userId: 'u1',
-            tittle: 'Master Angular',
-            summary: 'Learn all the basic and advanced features of Angular',
-            dueDate: '2026-12-31'
-        }
-    ]
+    public tasksList = TASK_LIST;
 
     isSameUser(taskUserId: string): boolean {
-        return this.user() === taskUserId;
+      return this.userId() === taskUserId;
     }
 }
