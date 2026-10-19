@@ -4,6 +4,7 @@
             <h3> {{task.title}} </h3>
             <p> {{ task.summary }} </p>
             <p> {{ task.dueDate }} </p>
+            <button type="button" (click)="removeTask(task.id)">Eliminar</button>
         }
     }
 </div>

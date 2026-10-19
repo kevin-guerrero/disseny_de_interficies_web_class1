@@ -13,6 +13,10 @@ export class TasksComponent {
 
     public tasksList = TASK_LIST;
 
+    public removeTask(id: string) {
+        this.tasksList = this.tasksList.filter((task) => task.id !== id);
+    }
+
     isSameUser(taskUserId: string): boolean {
       return this.userId() === taskUserId;
     }
